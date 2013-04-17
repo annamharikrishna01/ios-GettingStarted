@@ -18,6 +18,11 @@
 		1A58ACDE171F23700056436E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A58ACDD171F23700056436E /* Default-568h@2x.png */; };
 		1A58ACE1171F23700056436E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A58ACE0171F23700056436E /* ViewController.m */; };
 		1A58ACE4171F23700056436E /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A58ACE2171F23700056436E /* ViewController.xib */; };
+		1A58ACEE171F23830056436E /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A58ACEA171F23830056436E /* Accounts.framework */; };
+		1A58ACEF171F23830056436E /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A58ACEB171F23830056436E /* AdSupport.framework */; };
+		1A58ACF0171F23830056436E /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A58ACEC171F23830056436E /* Security.framework */; };
+		1A58ACF1171F23830056436E /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A58ACED171F23830056436E /* Social.framework */; };
+		1A58ACF3171F23910056436E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A58ACF2171F23910056436E /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		1A58ACDF171F23700056436E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1A58ACE0171F23700056436E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1A58ACE3171F23700056436E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		1A58ACEA171F23830056436E /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		1A58ACEB171F23830056436E /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		1A58ACEC171F23830056436E /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1A58ACED171F23830056436E /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1A58ACF2171F23910056436E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +54,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A58ACF3171F23910056436E /* CoreLocation.framework in Frameworks */,
+				1A58ACEE171F23830056436E /* Accounts.framework in Frameworks */,
+				1A58ACEF171F23830056436E /* AdSupport.framework in Frameworks */,
+				1A58ACF0171F23830056436E /* Security.framework in Frameworks */,
+				1A58ACF1171F23830056436E /* Social.framework in Frameworks */,
 				1A58ACC8171F23700056436E /* UIKit.framework in Frameworks */,
 				1A58ACCA171F23700056436E /* Foundation.framework in Frameworks */,
 				1A58ACCC171F23700056436E /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +88,11 @@
 		1A58ACC6171F23700056436E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A58ACF2171F23910056436E /* CoreLocation.framework */,
+				1A58ACEA171F23830056436E /* Accounts.framework */,
+				1A58ACEB171F23830056436E /* AdSupport.framework */,
+				1A58ACEC171F23830056436E /* Security.framework */,
+				1A58ACED171F23830056436E /* Social.framework */,
 				1A58ACC7171F23700056436E /* UIKit.framework */,
 				1A58ACC9171F23700056436E /* Foundation.framework */,
 				1A58ACCB171F23700056436E /* CoreGraphics.framework */,
@@ -263,6 +283,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialBoarding/SocialBoarding-Prefix.pch";
 				INFOPLIST_FILE = "SocialBoarding/SocialBoarding-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -274,6 +298,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialBoarding/SocialBoarding-Prefix.pch";
 				INFOPLIST_FILE = "SocialBoarding/SocialBoarding-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lsqlite3.0",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
