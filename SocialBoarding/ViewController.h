@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface ViewController : UIViewController
 
+- (IBAction)shareButtonPressed:(id)sender;
 @end

@@ -26,4 +26,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)shareButtonPressed:(id)sender
+{
+    [FBDialogs presentOSIntegratedShareDialogModallyFrom:self initialText:@"This is actually not permitted" image:[UIImage imageNamed:@"image.jpg"] url:[NSURL URLWithString:@"http://www.cbssports.com/nfl/blog/eye-on-football/22027152/mike-shanahan-rg3-will-set-a-record-for-coming-back-from-injury"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {
+        if(error) {
+            NSLog(@"Error: %@", error.description);
+        }
+    }];
+}
+
 @end
