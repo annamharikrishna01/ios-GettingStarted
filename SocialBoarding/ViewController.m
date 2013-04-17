@@ -17,7 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // add these two lines of code to support the FBLoginView
+    self.loginView.readPermissions = @[@"email", @"user_likes"];
+    self.loginView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning
@@ -26,6 +29,36 @@
     // Dispose of any resources that can be recreated.
 }
 
+// FBLoginViewDelegate
+-(void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
+{
+    NSLog(@"There was an error! %@", error.description);
+}
+
+-(void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
+{
+    NSLog(@"Fetched the user");
+    
+    NSString *greetingText = @"Greetings";
+    NSString *userName = user.first_name;
+    
+    self.greetingLabel.text = [NSString stringWithFormat:@"%@ %@", greetingText, userName];
+    self.profilePictureView.profileID = user.id;
+}
+
+-(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    NSLog(@"A user is logged in");
+}
+
+-(void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
+{
+    NSLog(@"There is no logged in user");
+    self.greetingLabel.text = @"Login for a special greeting";
+    self.profilePictureView.profileID = nil;
+}
+
+// actions for buttons
 - (IBAction)shareButtonPressed:(id)sender
 {
     [FBDialogs presentOSIntegratedShareDialogModallyFrom:self initialText:@"This is actually not permitted" image:[UIImage imageNamed:@"image.jpg"] url:[NSURL URLWithString:@"http://www.cbssports.com/nfl/blog/eye-on-football/22027152/mike-shanahan-rg3-will-set-a-record-for-coming-back-from-injury"] handler:^(FBOSIntegratedShareDialogResult result, NSError *error) {

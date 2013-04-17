@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <FBLoginViewDelegate>
+@property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
+@property (weak, nonatomic) IBOutlet UILabel *greetingLabel;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 - (IBAction)shareButtonPressed:(id)sender;
 - (IBAction)nativeShareButtonPressed:(id)sender;
