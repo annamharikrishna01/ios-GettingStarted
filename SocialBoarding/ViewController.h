@@ -12,4 +12,7 @@
 @interface ViewController : UIViewController
 
 - (IBAction)shareButtonPressed:(id)sender;
+- (IBAction)nativeShareButtonPressed:(id)sender;
+- (IBAction)nativeOGShareButtonPressed:(id)sender;
+
 @end
