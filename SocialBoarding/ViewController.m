@@ -44,6 +44,18 @@
     
     self.greetingLabel.text = [NSString stringWithFormat:@"%@ %@", greetingText, userName];
     self.profilePictureView.profileID = user.id;
+    
+    // see if the user has specified any languages
+    // then iterate over the languages and see if they speak Klingon
+    if ([user objectForKey:@"languages"]) {
+        NSArray *languages = [user objectForKey:@"languages"];
+        for (int i = 0; i < [languages count]; i++) {
+            if([[[languages objectAtIndex:i] objectForKey:@"name"]
+                isEqualToString:@"Klingon"]) {
+                self.greetingLabel.text = @"Heghlu'meH QaQ jajvam!";
+            }
+        }
+    }
 }
 
 -(void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
