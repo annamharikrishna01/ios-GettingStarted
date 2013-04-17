@@ -128,4 +128,20 @@
                                              }];
 }
 
+- (IBAction)placePickerButtonPressed:(id)sender
+{
+    FBPlacePickerViewController * placePickerController = [[FBPlacePickerViewController alloc] init];
+    placePickerController.title = @"Pick a Place in Whistler";
+    placePickerController.locationCoordinate = CLLocationCoordinate2DMake(50.1244,-122.9600);
+    [placePickerController loadData];
+    
+    [placePickerController presentModallyFromViewController:self animated:YES handler:^(FBViewController *sender, BOOL donePressed) {
+        NSString *placeName = placePickerController.selection.name;
+        if(!placeName) {
+            placeName = @"No Place Selected";
+        }
+        self.greetingLabel.text = [NSString stringWithFormat:@"Hope You Enjoy %@", placeName];
+    }];
+}
+
 @end
